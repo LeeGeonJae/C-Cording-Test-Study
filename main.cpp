@@ -2,16 +2,14 @@
 
 using namespace std;
 
-int ret = 1;
-
-void a()
+double a()
 {
-	ret = 2;
-	cout << ret << "\n";
-	return;
+	return 1.2333;
 }
+
 int main()
 {
-	a();
+	double ret = a();
+	cout << ret << endl;
 	return 0;
 }
