@@ -1,14 +1,19 @@
 #include <iostream>
+#include <stdio.h>
 #include <string>
-#include <vector>
 
 using namespace std;
 
-int main() 
+int main()
 {
-	string s = "1";
-	string s2 = "amumu";
-	cout << atoi(s.c_str()) << endl;
-	cout << atoi(s2.c_str()) << endl;
-	return 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int a = -1;
+	cout << bool(a) << endl;
+	a = 0;
+	cout << bool(a) << endl;
+	a = 3;
+	cout << bool(a) << endl;
 }
