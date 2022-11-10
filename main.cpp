@@ -4,20 +4,13 @@
 
 using namespace std;
 
-int T;
-string s;
-
 int main()
 {
-	cin >> T;
-	//string bufferflush;
-	//getline(cin, bufferflush);
-	
-	for (int i = 0; i < T; i++)
-	{
-		getline(cin, s);
-		cout << s << endl;
-	}
+	double a = 1.23456789;
+
+	cout << a << endl;
+	cout.precision(7);
+	cout << a << endl;
 
 	return 0;
 }
