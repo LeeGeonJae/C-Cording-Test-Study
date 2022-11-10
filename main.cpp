@@ -6,11 +6,16 @@ using namespace std;
 
 int main()
 {
-	double a = 1.23456789;
+	double ret = 2.12345;
+	int n = 2;
+	int a = (int)round(ret / double(n));
 
-	cout << a << endl;
-	cout.precision(7);
-	cout << a << endl;
+	cout << a << "\n";
+
+	cout << round(ret) << endl;
+	cout << (int)ret << endl;
+	cout << (double)n << endl;
+	cout << double(n) << endl;
 
 	return 0;
 }
