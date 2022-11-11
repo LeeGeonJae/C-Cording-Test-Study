@@ -3,29 +3,34 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <queue>
 
 using namespace std;
 
 struct Point
 {
 	int y, x;
+	Point(int y, int x) : y(y), x(x) {}
+	Point() { y = -1; x = -1; }
+	bool operator < (const Point& a) const {
+		return x > a.x;
+	}
+	
 };
-bool cmp(const Point& a, const Point& b)
-{
-	cout << a.x << "a " << b.x << "b " << endl;
-	return a.x > b.x;
-}
 
 int main()
 {
-	vector<Point> v;
+	priority_queue<Point> pq;
 
-	for (int i = 10; i >= 1; i--)
-	{
-		v.push_back({ i, 10 - i });
-	}
-	 sort(v.begin(), v.end(), cmp);
-	for (auto it : v) cout << it.y << " : " << it.x << endl;
+	pq.push({ 1, 1 });
+	pq.push({ 2, 2 });
+	pq.push({ 3, 3 });
+	pq.push({ 4, 4 });
+	pq.push({ 5, 5 });
+	pq.push({ 6, 6 });
+
+	cout << pq.top().x << endl;
+	cout << pq.top().y << endl;
 
 	return 0;
 }
