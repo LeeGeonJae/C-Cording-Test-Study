@@ -2,35 +2,15 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <queue>
 
 using namespace std;
 
-struct Point
-{
-	int y, x;
-	Point(int y, int x) : y(y), x(x) {}
-	Point() { y = -1; x = -1; }
-	bool operator < (const Point& a) const {
-		return x > a.x;
-	}
-	
-};
-
 int main()
 {
-	priority_queue<Point> pq;
-
-	pq.push({ 1, 1 });
-	pq.push({ 2, 2 });
-	pq.push({ 3, 3 });
-	pq.push({ 4, 4 });
-	pq.push({ 5, 5 });
-	pq.push({ 6, 6 });
-
-	cout << pq.top().x << endl;
-	cout << pq.top().y << endl;
+	string a = "abcda";
+	string *b = &a;
+	cout << b << endl;
+	cout << *b << endl;
 
 	return 0;
 }
