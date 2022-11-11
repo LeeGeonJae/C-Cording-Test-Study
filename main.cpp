@@ -3,43 +3,24 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <tuple>
 
 using namespace std;
 
-const int mxy = 3;
-const int mxx = 4;
-
-int a[mxy][mxx];
+pair<int, int> pi;
+tuple<int, int, int> tl;
+int a, b, c;
 
 int main()
 {
-	for (int i = 0; i < mxy; i++)
-	{
-		for (int j = 0; j < mxx; j++)
-		{
-			a[i][j] = (i + j);
-		}
-	}
-	
-	// good
-	for (int i = 0; i < mxy; i++)
-	{
-		for (int j = 0; j < mxx; j++)
-		{
-			cout << a[i][j] << ' ';
-		}
-		cout << endl;
-	}
+	pi = { 1, 2 };
+	tl = make_tuple(1, 1, 3);
 
-	// bad
-	for (int i = 0; i < mxx; i++)
-	{
-		for (int j = 0; j < mxy; j++)
-		{
-			cout << a[j][i] << ' ';
-		}
-		cout << endl;
-	}
+	tie(a, b) = pi;
+	cout << a << " : " << b << endl;
+
+	tie(a, b, c) = tl;
+	cout << a << " : " << b << " : " << c << endl;
 
 	return 0;
 }
