@@ -2,25 +2,22 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <stack>
+#include <queue>
 
 using namespace std;
 
 int main()
 {
-	stack<string> stk;
-	stk.push("엄");
-	stk.push("준");
-	stk.push("신");
-	stk.push("화");
-	stk.push("이");
-	stk.push("팅");
+	queue<int> q;
+	q.push(1);
+	q.push(2);
 
-	while (stk.size())
-	{
-		cout << stk.top() << endl;
-		stk.pop();
-	}
+	cout << q.front() << endl;
+	cout << q.size() << endl;
+	cout << q.back() << endl;
+
+	q.pop();
+	cout << q.size() << endl;
 
 	return 0;
 }
