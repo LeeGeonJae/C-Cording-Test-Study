@@ -8,16 +8,17 @@ using namespace std;
 
 int main()
 {
-	queue<int> q;
-	q.push(1);
-	q.push(2);
-
-	cout << q.front() << endl;
-	cout << q.size() << endl;
-	cout << q.back() << endl;
-
-	q.pop();
-	cout << q.size() << endl;
+	deque<int> dp;
+	dp.push_front(1);
+	dp.push_back(2);
+	dp.push_back(3);
+	cout << dp.front() << endl;
+	cout << dp.back() << endl;
+	cout << dp.size() << endl;
+	dp.pop_back();
+	dp.pop_front();
+	cout << dp.size() << endl;
+	cout << dp.front() << endl;
 
 	return 0;
 }
