@@ -2,41 +2,25 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <set>
+#include <stack>
 
 using namespace std;
 
 int main()
 {
-	multiset<int> s;
-	s.insert(12);
-	s.insert(10);
-	s.insert(2);
-	s.insert(10);
-	s.insert(90);
-	s.insert(85);
-	s.insert(45);
+	stack<string> stk;
+	stk.push("엄");
+	stk.push("준");
+	stk.push("신");
+	stk.push("화");
+	stk.push("이");
+	stk.push("팅");
 
-	cout << "Multiset elements after sort" << endl;
-	for (auto it = s.begin(); it != s.end(); it++)
-		cout << *it << ' ';
-	cout << endl;
-
-	auto it1 = s.find(10);
-	auto it2 = s.find(90);
-
-	// elements from 10 to elements befor 90
-	// erased
-	s.erase(it1, it2);
-
-	cout << "Multiset Elements after erase" << endl;
-
-	for (auto it = s.begin(); it != s.end(); it++)
-		cout << (*it) << ' ';
-	s.erase(s.begin());
-	cout << endl;
-	for (auto it = s.begin(); it != s.end(); it++)
-		cout << (*it) << ' ';
+	while (stk.size())
+	{
+		cout << stk.top() << endl;
+		stk.pop();
+	}
 
 	return 0;
 }
