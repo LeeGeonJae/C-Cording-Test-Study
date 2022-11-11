@@ -7,17 +7,26 @@
 
 using namespace std;
 
-vector<pair<int, int>> v;
+vector<int> v;
 
 int main()
 {
-	for (int i = 10; i >= 1; i--)
+	for (int i = 1; i <= 5; i++)
 	{
-		v.push_back({ i, 10 - i });
+		v.push_back(i);
+		v.push_back(i);
+	}
+	for (int i = 5; i >= 1; i--)
+	{
+		v.push_back(i);
+		v.push_back(i);
 	}
 	sort(v.begin(), v.end());
+	for (int i : v) cout << i << " ";
+	cout << endl;
 
-	for (auto it : v) cout << it.first << " : " << it.second << endl;
-	
+	v.erase(unique(v.begin(), v.end()), v.end());
+	for (int i : v) cout << i << " ";
+
 	return 0;
 }
