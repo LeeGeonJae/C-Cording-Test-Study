@@ -1,26 +1,28 @@
 #include <iostream>
-#include <stdio.h>
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <map>
+#include <set>
 
 using namespace std;
 
-map<int, int> mp;
-map<string, string> mp2;
-
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
+	set<pair<string, int>> st;
+	st.insert({ "test", 1 });
+	st.insert({ "test", 1 });
+	st.insert({ "test", 1 });
+	st.insert({ "test", 1 });
+	cout << st.size() << " : st»çÀÌÁî" << endl;
 
-	if (mp[1] == 0)
+	set<int> st2;
+	st2.insert(1);
+	st2.insert(2);
+	st2.insert(2);
+	for (auto it : st2)
 	{
-		mp[1] = 2;
+		cout << it << endl;
 	}
-	for (auto i : mp) cout << i.first << " " << i.second;
 
 	return 0;
 }
