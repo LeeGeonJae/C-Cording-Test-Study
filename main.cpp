@@ -13,13 +13,15 @@ int a, b, c;
 
 int main()
 {
-	pi = { 1, 2 };
-	tl = make_tuple(1, 1, 3);
-
-	tie(a, b) = pi;
+	pi = make_pair(1, 2);
+	a = pi.first;
+	b = pi.second;
 	cout << a << " : " << b << endl;
 
-	tie(a, b, c) = tl;
+	tl = make_tuple(1, 1, 3);
+	a = get<0>(tl);
+	b = get<1>(tl);
+	c = get<2>(tl);
 	cout << a << " : " << b << " : " << c << endl;
 
 	return 0;
