@@ -7,42 +7,20 @@
 
 using namespace std;
 
-map<string, int> mp;
+map<int, int> mp;
+map<string, string> mp2;
 
 int main()
 {
-	// 이렇게 넣기도 가능하고
-	mp.insert({ "test1", 1 });
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-	// 이렇게 넣을 수도 있습니다.
-	mp.emplace("test5", 5);
-
-	// 또한 이렇게 변경도 가능, 추가할 수도 있습니다. 아래를 권장합니다.
-	mp["test1"] = 4;
-
-	for (auto element : mp)
+	if (mp[1] == 0)
 	{
-		cout << element.first << " : : " << element.second << endl;
+		mp[1] = 2;
 	}
-
-	// map의 find메소드는 찾지 못하면 end() 이터레이터를 반환합니다.
-	auto search = mp.find("test4");
-	if (search != mp.end())
-	{
-		cout << "found : " << search->first << " " << (*search).second << endl;
-	}
-	else
-	{
-		cout << "not found.." << endl;
-	}
-	
-	// 이런 식으로 바로 int형을 증가시킬 수 있습니다.
-	mp["test1"]++;
-	cout << mp["test1"] << endl;
-
-	cout << mp.size() << endl;
-	mp.erase("test1");
-	cout << mp.size() << endl;
+	for (auto i : mp) cout << i.first << " " << i.second;
 
 	return 0;
 }
