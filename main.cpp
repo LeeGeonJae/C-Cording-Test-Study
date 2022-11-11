@@ -7,22 +7,42 @@
 
 using namespace std;
 
-pair<int, int> pi;
-tuple<int, int, int> tl;
-int a, b, c;
+vector<int> a;
+int b[5];
 
 int main()
 {
-	pi = make_pair(1, 2);
-	a = pi.first;
-	b = pi.second;
-	cout << a << " : " << b << endl;
+	for (int i = 5; i >= 1; i--)
+	{
+		b[i - 1] = i;
+	}
+	for (int i = 5; i >= 1; i--)
+	{
+		a.push_back(i);
+	}
 
-	tl = make_tuple(1, 1, 3);
-	a = get<0>(tl);
-	b = get<1>(tl);
-	c = get<2>(tl);
-	cout << a << " : " << b << " : " << c << endl;
+	// 오름차순
+	sort(b, b + 5);
+	sort(a.begin(), a.end());
+	for (int i : b) cout << i << ' ';
+	cout << endl;
+	for (int i : a) cout << i << ' ';
+	cout << endl;
 
+	sort(b, b + 5, less<int>());
+	sort(a.begin(), a.end(), less<int>());
+	for (int i : b) cout << i << ' ';
+	cout << endl;
+	for (int i : a) cout << i << ' ';
+	cout << endl;
+
+	// 내림차순
+	sort(b, b + 5, greater<int>());
+	sort(a.begin(), a.end(), greater<int>());
+	for (int i : b) cout << i << ' ';
+	cout << endl;
+	for (int i : a) cout << i << ' ';
+	cout << endl;
+	
 	return 0;
 }
