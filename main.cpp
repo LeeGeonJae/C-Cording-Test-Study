@@ -7,17 +7,17 @@
 
 using namespace std;
 
+void go(int a[])
+{
+	a[1] = 100;
+}
+int a[3] = { 1,2,3 };
+
 int main()
 {
-	vector<int> v;
+	go(a);
 
-	for (int i = 1; i <= 5; i++) v.push_back(i);
-	for (int i = 0; i < 5; i++)
-	{
-		cout << i << "번째 요소 : " << *(v.begin() + i) << endl;
-		cout << &*(v.begin() + i) << endl;
-	}
-	// cout << v.begin() << endl; // 에러
-
+	for (int i : a) cout << i << endl;
+	
 	return 0;
 }
