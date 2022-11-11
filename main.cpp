@@ -1,24 +1,34 @@
 #include <iostream>
+#include <stdio.h>
 #include <string>
 #include <vector>
-#include <map>
-#include <queue>
+#include <algorithm>
 
 using namespace std;
 
+struct Point
+{
+	int y, x;
+	Point(int y, int x) : y(y), x(x) {}
+	Point() { y = -1; x = -1; }
+	bool operator < (const Point& a) const
+	{
+		if (x == a.x) return y < a.y;
+		return x < a.x;
+	}
+};
+
 int main()
 {
-	deque<int> dp;
-	dp.push_front(1);
-	dp.push_back(2);
-	dp.push_back(3);
-	cout << dp.front() << endl;
-	cout << dp.back() << endl;
-	cout << dp.size() << endl;
-	dp.pop_back();
-	dp.pop_front();
-	cout << dp.size() << endl;
-	cout << dp.front() << endl;
+	vector<Point> v;
+
+	for (int i = 10; i >= 1; i--)
+	{
+		Point a = { i, i };
+		v.push_back(a);
+	}
+	sort(v.begin(), v.end());
+	for (auto it : v) cout << it.y << " : " << it.x << endl;
 
 	return 0;
 }
