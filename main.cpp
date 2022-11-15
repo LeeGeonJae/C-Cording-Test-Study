@@ -25,8 +25,7 @@ void combi(int start, vector<int> b) {
 	return;
 }
 int main() {
-	77 / [인프런] - C++10주완성 코딩테스트
-		vector<int> b;
+	vector<int> b;
 	combi(-1, b);
 	return 0;
 }
