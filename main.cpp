@@ -7,22 +7,22 @@
 
 using namespace std;
 
-int n = 5;
-int k = 3;
-int a[5] = { 1,2,3,4,5 };
+int gcd(int a, int b)
+{
+	if (a == 0) return b;
+	return gcd(b % a, a);
+}
+
+int lcm(int a, int b)
+{
+	return (a * b) / gcd(a, b);
+}
 
 int main()
 {
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			for (int k = j + 1; k < n; k++)
-			{
-				cout << i << " " << j << " " << k << '\n';
-			}
-		}
-	}
-
+	int a = 10, b = 12;
+	cout << lcm(a, b) << '\n';
+	cout << gcd(a, b) << '\n';
+	
 	return 0;
 }
