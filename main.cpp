@@ -7,22 +7,26 @@
 
 using namespace std;
 
-int gcd(int a, int b)
+bool check(int n)
 {
-	if (a == 0) return b;
-	return gcd(b % a, a);
-}
-
-int lcm(int a, int b)
-{
-	return (a * b) / gcd(a, b);
+	if (n <= 1) return 0;
+	if (n == 2) return 1;
+	if (n % 2 == 0) return 0;
+	for (int i = 2; i * i <= n; i++)
+	{
+		if (n % i == 0) return 0;
+	}
+	return 1;
 }
 
 int main()
 {
-	int a = 10, b = 12;
-	cout << lcm(a, b) << '\n';
-	cout << gcd(a, b) << '\n';
-	
+	for (int i = 1; i <= 20; i++)
+	{
+		if (check(i))
+		{
+			cout << i << "는 소수입니다.\n";
+		}
+	}
 	return 0;
 }
