@@ -9,8 +9,8 @@ using namespace std;
 
 int main()
 {
-	int n = 4;
-	int pow_2 = (int)pow(2, n);
-	cout << pow_2 << '\n';
+	int n = 16;
+	int ret = (int)sqrt(n);
+	cout << ret << '\n';
 	return 0;
 }
