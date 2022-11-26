@@ -7,18 +7,16 @@
 
 using namespace std;
 
-int main()
-{
-	vector<int> v;
-	for (int i = 2; i <= 5; i++)v.push_back(i);
-	v.push_back(7);
-	// 2 3 4 5 7
-	cout << upper_bound(v.begin(), v.end(), 6) - v.begin() << "\n";
-	cout << lower_bound(v.begin(), v.end(), 6) - v.begin() << "\n";
-	cout << upper_bound(v.begin(), v.end(), 9) - v.begin() << "\n";
-	cout << lower_bound(v.begin(), v.end(), 9) - v.begin() << "\n";
-	cout << upper_bound(v.begin(), v.end(), 0) - v.begin() << "\n";
-	cout << lower_bound(v.begin(), v.end(), 0) - v.begin() << "\n";
+vector<int> v;
 
-	return 0;
+int main() 
+{
+	for (int i = 1; i < 10; ++i) v.push_back(i); // 1 2 3 4 5 6 7 8 9
+	//rotate(v.begin(),v.begin()+1, v.end());
+	// 2 3 4 5 6 7 8 9 1 앞으로 할 땐 이렇게
+	rotate(v.begin(), v.begin() + v.size() - 1, v.end());
+	// 9 1 2 3 4 5 6 7 8 뒤로 갈 땐 이렇게
+	for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+		std::cout << ' ' << *it;
+	std::cout << '\n';
 }
