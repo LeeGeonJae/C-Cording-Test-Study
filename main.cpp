@@ -1,22 +1,31 @@
 #include <iostream>
-#include <stdio.h>
-#include <string>
 #include <vector>
-#include <algorithm>
-#include <cstdio>
 
 using namespace std;
 
-vector<int> v;
+int solution(vector<vector<int>> dots) {
+	int answer = 0;
+	int dx, dy;
 
-int main() 
+	for (size_t i = 0; i < dots.size(); i++)
+	{
+		for (size_t j = 0; j < dots[i].size(); j++)
+		{
+			if (dots[i][0] != dots[j][0])
+				dx = dots[i][0] - dots[j][0];
+			if (dots[i][1] != dots[j][1])
+				dy = dots[i][1] - dots[j][1];
+		}
+	}
+
+	answer = abs(dx) * abs(dy);
+
+	return answer;
+}
+
+int main()
 {
-	for (int i = 1; i < 10; ++i) v.push_back(i); // 1 2 3 4 5 6 7 8 9
-	//rotate(v.begin(),v.begin()+1, v.end());
-	// 2 3 4 5 6 7 8 9 1 앞으로 할 땐 이렇게
-	rotate(v.begin(), v.begin() + v.size() - 1, v.end());
-	// 9 1 2 3 4 5 6 7 8 뒤로 갈 땐 이렇게
-	for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it)
-		std::cout << ' ' << *it;
-	std::cout << '\n';
+
+
+	return 0;
 }
