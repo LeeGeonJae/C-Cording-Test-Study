@@ -1,31 +1,37 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
 
-int solution(vector<vector<int>> dots) {
+int solution(vector<int> a, vector<int> b) {
 	int answer = 0;
-	int dx, dy;
 
-	for (size_t i = 0; i < dots.size(); i++)
+	for (size_t i = 0; i < a.size(); i++)
 	{
-		for (size_t j = 0; j < dots[i].size(); j++)
-		{
-			if (dots[i][0] != dots[j][0])
-				dx = dots[i][0] - dots[j][0];
-			if (dots[i][1] != dots[j][1])
-				dy = dots[i][1] - dots[j][1];
-		}
+		answer += a[i] * b[i];
 	}
-
-	answer = abs(dx) * abs(dy);
 
 	return answer;
 }
 
 int main()
 {
+	vector<int> a;
+	vector<int> b;
+	int c;
+	a.push_back(1);
+	a.push_back(2);
+	a.push_back(3);
+	a.push_back(4);
+	b.push_back(-3);
+	b.push_back(-1);
+	b.push_back(0);
+	b.push_back(2);
 
+	c = solution(a, b);
+
+	cout << c << endl;
 
 	return 0;
 }
