@@ -35,36 +35,86 @@ int CCW(const Point& _p1, const Point& _p2, const Point& _p3)
 	else return 0;					// ÀÏÁ÷¼±
 }
 
-int main()
+bool CheckCollision(const Point& _PlayerPoint, const Point& _p1, const Point& _p2, bool& _LineSegment)
 {
-	Line l1, l2;
-	bool Check = false;
+	Point PlayerRight;
+	PlayerRight.y = _PlayerPoint.y + 1;
+	PlayerRight.x = 1000000001;
 
-	cin >> l1.p1.x >> l1.p1.y >> l1.p2.x >> l1.p2.y >> l2.p1.x >> l2.p1.y >> l2.p2.x >> l2.p2.y;
-
-	int std1 = CCW(l1.p1, l1.p2, l2.p1) * CCW(l1.p1, l1.p2, l2.p2);
-	int std2 = CCW(l2.p1, l2.p2, l1.p1) * CCW(l2.p1, l2.p2, l1.p2);
+ 	int std1 = CCW(_PlayerPoint, PlayerRight, _p1) * CCW(_PlayerPoint, PlayerRight, _p2);
+	int std2 = CCW(_p1, _p2, _PlayerPoint) * CCW(_p1, _p2, PlayerRight);
 
 	if (std1 <= 0 && std2 <= 0)
 	{
-		if (std1 == 0 && std2 == 0)
+		if (std2 == 0)
 		{
-			if (l1.p2 <= l1.p1) swap(l1.p1, l1.p2);
-			if (l2.p2 <= l2.p1) swap(l2.p1, l2.p2);
+			Point tempPlayer = _PlayerPoint;
+			Point tempP1 = _p1;
+			Point tempP2 = _p2;
 
-			if (l1.p1 <= l2.p2 && l2.p1 <= l1.p2)
-				Check = true;
+			if (tempP2 <= tempP1) swap(tempP1, tempP2);
+
+ 			if (tempPlayer <= tempP2 && tempP1 <= tempPlayer)
+			{
+				_LineSegment = true;
+				return true;
+			}
 			else
-				Check = false;
+				return false;
 		}
-		else Check = true;
+		else return true;
 	}
-	else Check = false;
+	else return false;
+}
 
-	if (Check)
-		cout << 1 << endl;
-	else
-		cout << 0 << endl;
+int main()
+{
+	vector<Point> PolygonPoint;
+	vector<Point> PlayerPoint;
+	int PointCount;
+	int CheckCollisionNumber[3] = {0};
+	bool Collision[3] = { 0 };
+
+	cin >> PointCount;
+
+	for (int i = 0; i < PointCount; i++)
+	{
+		Point a;
+		cin >> a.x >> a.y;
+		PolygonPoint.push_back(a);
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		Point a;
+		cin >> a.x >> a.y;
+		PlayerPoint.push_back(a);
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < PointCount; j++)
+		{
+			if (CheckCollision(PlayerPoint[i], PolygonPoint[j], PolygonPoint[(j + 1) % PointCount], Collision[i]))
+			{
+				CheckCollisionNumber[i]++;
+			}
+
+			if (PlayerPoint[i].x == PolygonPoint[j].x && PlayerPoint[i].y == PolygonPoint[j].y)
+			{
+				Collision[i] = true;
+				break;
+			}
+		}
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		if ((CheckCollisionNumber[i] % 2 == 1) || Collision[i] == true)
+			cout << 1 << endl;
+		else
+			cout << 0 << endl;
+	}
 
 	return 0;
 }
